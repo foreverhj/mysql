@@ -1,20 +1,20 @@
-Êı¾İ¿âÖ÷´ÓÒ»ÖÂĞÔ¼ì²é£º
+æ•°æ®åº“ä¸»ä»ä¸€è‡´æ€§æ£€æŸ¥ï¼š
 mk-table-checksum h=192.168.10.10,u=user,p='password' h=192.168.10.11,u=user,p='password' -d databaseName --count|mk-checksum-filte
 
-Êı¾İ¿âÖ÷´Ó²»Ò»ÖÂÊ±Ìø¹ı1²½£º
+æ•°æ®åº“ä¸»ä»ä¸ä¸€è‡´æ—¶è·³è¿‡1æ­¥ï¼š
 stop slave ; set global sql_slave_skip_counter=1; start slave;
 
-Êı¾İ¿âgrant£º
+æ•°æ®åº“grantï¼š
 grant select,update,insert,delete on *.* to user@'192.168.%.%' identified by 'password';
 grant select on *.* to user@'192.168.%.%' identified by 'password';
 
-Êı¾İ¿âµ¼³ö£º
+æ•°æ®åº“å¯¼å‡ºï¼š
 mydumper -u root -p password -t 2 -B databaseName -T tableName -o /tmp/xx
 
-Êı¾İ¿âµ¼Èë£º
+æ•°æ®åº“å¯¼å…¥ï¼š
 myloader -u root -p 'password' -t 2 -o -B databaseName -d /backup/xxx
 
-Êı¾İ¿âchange master£º
+æ•°æ®åº“change masterï¼š
 CHANGE MASTER TO 
 MASTER_HOST='192.168.10.10', 
 MASTER_USER='userName', MASTER_PASSWORD='password', 
