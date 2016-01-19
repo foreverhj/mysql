@@ -1,0 +1,22 @@
+数据库主从一致性检查：
+mk-table-checksum h=192.168.10.10,u=user,p='password' h=192.168.10.11,u=user,p='password' -d databaseName --count|mk-checksum-filte
+
+数据库主从不一致时跳过1步：
+stop slave ; set global sql_slave_skip_counter=1; start slave;
+
+数据库grant：
+grant select,update,insert,delete on *.* to user@'192.168.%.%' identified by 'password';
+grant select on *.* to user@'192.168.%.%' identified by 'password';
+
+数据库导出：
+mydumper -u root -p password -t 2 -B databaseName -T tableName -o /tmp/xx
+
+数据库导入：
+myloader -u root -p 'password' -t 2 -o -B databaseName -d /backup/xxx
+
+数据库change master：
+CHANGE MASTER TO 
+MASTER_HOST='192.168.10.10', 
+MASTER_USER='userName', MASTER_PASSWORD='password', 
+MASTER_LOG_FILE='mysql-bin.000003',
+MASTER_LOG_POS=16215;
