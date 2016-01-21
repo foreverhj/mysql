@@ -1,4 +1,4 @@
-数据库主从一致性检查：
+﻿数据库主从一致性检查：
 mk-table-checksum h=192.168.10.10,u=user,p='password' h=192.168.10.11,u=user,p='password' -d databaseName --count|mk-checksum-filte
 
 数据库主从不一致时跳过1步：
@@ -20,3 +20,5 @@ MASTER_HOST='192.168.10.10',
 MASTER_USER='userName', MASTER_PASSWORD='password', 
 MASTER_LOG_FILE='mysql-bin.000003',
 MASTER_LOG_POS=16215;
+
+11111
