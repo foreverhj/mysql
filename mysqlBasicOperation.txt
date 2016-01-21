@@ -13,7 +13,7 @@ mydumper -u root -p password -t 2 -B databaseName -T tableName -o /tmp/xx
 
 数据库导入：
 myloader -u root -p 'password' -t 2 -o -B databaseName -d /backup/xxx
-
+myloader -u root -p 'password' -e -t 2 -o -B databaseName -d /backup/xxx(如已做主从则同步到从库)
 数据库change master：
 CHANGE MASTER TO 
 MASTER_HOST='192.168.10.10', 
